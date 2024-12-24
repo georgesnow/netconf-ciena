@@ -1,0 +1,23 @@
+<config xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx">
+<classifiers>
+    <classifier>
+      <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}</name>
+      <filter-entry>
+        <filter-parameter
+          xmlns:classifier="urn:ciena:params:xml:ns:yang:ciena-pn::ciena-mef-classifier">classifier:vtag-stack</filter-parameter>
+        <vtags>
+          <tag>1</tag>
+          <vlan-id>{{ FD_VLAN }}</vlan-id>
+        </vtags>
+      </filter-entry>
+    </classifier>
+    <classifier>
+      <name>untagged</name>
+      <filter-entry>
+        <filter-parameter
+          xmlns:classifier="urn:ciena:params:xml:ns:yang:ciena-pn::ciena-mef-classifier">classifier:vtag-stack</filter-parameter>
+        <untagged-exclude-priority-tagged>true</untagged-exclude-priority-tagged>
+      </filter-entry>
+    </classifier> 
+ </classifiers>
+ </config>

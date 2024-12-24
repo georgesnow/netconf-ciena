@@ -1,0 +1,13 @@
+<config
+  xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx"
+  ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
+  xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <mpls xmlns="http://ciena.com/ns/yang/ciena-mpls">
+    <interfaces>
+      <interface>
+        <name>Loopback</name>
+        <label-switching>true</label-switching>
+      </interface>
+    </interfaces>
+  </mpls>
+  </config>

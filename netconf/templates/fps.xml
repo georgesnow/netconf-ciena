@@ -1,0 +1,16 @@
+<config
+  xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx"
+  ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
+  xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <fps xmlns="urn:ciena:params:xml:ns:yang:ciena-pn:ciena-mef-fp">
+    <fp>
+      <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-ce-FP</name>
+      <description>facing-{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-ce-FP</description>
+      <fd-name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-ce-FD</fd-name>
+      <logical-port>12</logical-port>
+      <mtu-size>9800</mtu-size>
+      <classifier-list>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}</classifier-list>
+      <stats-collection>on</stats-collection>
+    </fp>
+  </fps>
+  </config>

@@ -1,0 +1,67 @@
+<config
+  xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx"
+  ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
+  xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <isis xmlns="http://ciena.com/ns/yang/ciena-isis">
+    <instance>
+      <tag>UNH</tag>
+      <net>{{ ISIS_NET }}</net>
+      <level-type>level-2</level-type>
+      <microloop-avoidance>
+        <enable>true</enable>
+      </microloop-avoidance>
+      <fast-reroute>
+        <level>
+          <level-type>level-2</level-type>
+          <lfa>
+            <per-prefix-enable>true</per-prefix-enable>
+            <ti-lfa>
+              <per-prefix-enable>true</per-prefix-enable>
+            </ti-lfa>
+          </lfa>
+        </level>
+      </fast-reroute>
+      <interfaces>
+        <interface>
+          <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
+          <interface-type>point-to-point</interface-type>
+          <level-type>level-2</level-type>
+          <address-families>
+            <address-family>
+              <afi>ipv4</afi>
+              <safi>unicast</safi>
+            </address-family>
+          </address-families>
+          <bfd>
+            <enable>true</enable>
+          </bfd>
+        </interface>
+        <interface>
+          <name>Loopback</name>
+          <level-type>level-2</level-type>
+          <address-families>
+            <address-family>
+              <afi>ipv4</afi>
+              <safi>unicast</safi>
+            </address-family>
+          </address-families>
+        </interface>
+      </interfaces>
+      <mpls-te>
+        <router-id>{{ LOOPBACK_IP }}</router-id>
+        <level-type>level-2</level-type>
+      </mpls-te>
+      <cspf-flag>true</cspf-flag>
+      <segment-routing>
+        <enabled>true</enabled>
+        <srgb>
+          <lower-bound>16000</lower-bound>
+          <upper-bound>23999</upper-bound>
+        </srgb>
+        <bindings>
+          <advertise>true</advertise>
+        </bindings>
+      </segment-routing>
+    </instance>
+  </isis>
+  </config>

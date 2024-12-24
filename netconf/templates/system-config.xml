@@ -1,0 +1,25 @@
+<config
+  xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx"
+  ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
+  xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <system xmlns="http://openconfig.net/yang/system">
+    <config>
+      <hostname>{{ HOSTNAME }}-ce</hostname>
+      <description xmlns="http://www.ciena.com/ns/yang/ciena-system">3928</description>
+      <location xmlns="http://www.ciena.com/ns/yang/ciena-system">{{ HOSTNAME }}</location>
+    </config>
+    <ntp xmlns="http://www.ciena.com/ns/yang/ciena-ntp">
+      <admin-state>enabled</admin-state>
+      <mode>polling</mode>
+      <polling-interval-min>16</polling-interval-min>
+      <polling-interval-max>16</polling-interval-max>
+      <associations>
+        <remote-ntp-server>
+          <server-entry>
+            <address>132.177.102.30</address>
+          </server-entry>
+        </remote-ntp-server>
+      </associations>
+    </ntp>
+  </system>
+  </config>

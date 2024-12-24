@@ -1,0 +1,74 @@
+<config
+  xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx"
+  ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
+  xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <interfaces xmlns="http://openconfig.net/yang/interfaces">
+    <interface>
+      <name>12</name>
+      <config>
+        <name>12</name>
+        <description>12</description>
+        <auto-negotiation xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">false</auto-negotiation>
+        <duplex xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">full</duplex>
+        <eoam-port-config xmlns="urn:ciena:params:xml:ns:yang:ciena-pn:ciena-ieee:ns:yang:ieee-port-eoam">
+          <admin-status>enable</admin-status>
+        </eoam-port-config>
+        <eoam-port-event-config xmlns="urn:ciena:params:xml:ns:yang:ciena-pn:ciena-ieee:ns:yang:ieee-port-eoam">
+          <error-frame-event-notification>true</error-frame-event-notification>
+          <dying-gasp>true</dying-gasp>
+          <critical-event>true</critical-event>
+        </eoam-port-event-config>
+        <flow-control xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">off</flow-control>
+        <lldp-port-config xmlns="urn:ciena:params:xml:ns:yang:ciena-pn::ciena-ieee-lldp">
+          <notify>true</notify>
+        </lldp-port-config>
+        <port-speed xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">10Gb</port-speed>
+        <ptp-id xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">12</ptp-id>
+        <type xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces">ettp</type>
+      </config>
+    </interface>
+    <interface>
+      <name>Loopback</name>
+      <config>
+        <name>Loopback</name>
+        <role xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces" xmlns:cn-if="http://ciena.com/ns/yang/ciena-openconfig-interfaces">cn-if:management</role>
+        <type xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces">loopback</type>
+      </config>
+      <ipv4 xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ip">
+        <addresses>
+          <address>
+            <ip>{{ LOOPBACK_IP }}</ip>
+            <config>
+              <ip>{{ LOOPBACK_IP }}</ip>
+              <prefix-length>32</prefix-length>
+            </config>
+          </address>
+        </addresses>
+      </ipv4>
+    </interface>
+    <interface>
+      <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
+      <config>
+        <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
+        <mtu>9100</mtu>
+        <type xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces">ip</type>
+        <underlay-binding xmlns="http://ciena.com/ns/yang/ciena-underlay-binding">
+          <config>
+            <fd>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-ce-FD</fd>
+          </config>
+        </underlay-binding>
+      </config>
+      <ipv4 xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ip">
+        <addresses>
+          <address>
+            <ip>{{ P2P_IP }}</ip>
+            <config>
+              <ip>{{ P2P_IP }}</ip>
+              <prefix-length>30</prefix-length>
+            </config>
+          </address>
+        </addresses>
+      </ipv4>
+    </interface>
+  </interfaces>
+  </config>
