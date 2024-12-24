@@ -12,6 +12,10 @@ The templates assume the naming you want to use conforms to
 location-town-devicetype-ce 
 
 location = name of the place the equipment is
+
 town = this is the US postal town/city abbreviation
+
 devicetype = 3928,5164,8114 etc...
+
 ce = is always at the end of the devices to denote these are carrier ethernet devices
+
