@@ -6,16 +6,10 @@
     <session-config-entry>
       <ip>
         <single-hop>
-         {% if INT_DELETE -%}
-          <ipv4 xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
-          <interface>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</interface>
-          </ipv4>
-          {%- else %}
           <ipv4>
             <interface>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</interface>
             <profile>bfd_fast_10ms</profile>
           </ipv4>
-          {%- endif %}
         </single-hop>
       </ip>
     </session-config-entry>

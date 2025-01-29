@@ -2,8 +2,9 @@
     <isis xmlns="http://ciena.com/ns/yang/ciena-isis">
     <instance>
       <tag>UNH</tag>
-      <net>{{ ISIS_NET }}.00</net>
+      <net>{{ ISIS_NET }}</net>
       <level-type>level-2</level-type>
+      <cspf-flag>true</cspf-flag>
       <microloop-avoidance>
         <enable>true</enable>
       </microloop-avoidance>
@@ -22,13 +23,11 @@
         <router-id>{{ LOOPBACK_IP }}</router-id>
         <level-type>level-2</level-type>
       </mpls-te>
-      <cspf-flag>true</cspf-flag>
-
       <segment-routing>
         <enabled>true</enabled>
         <srgb>
           <lower-bound>16000</lower-bound>
-          <upper-bound>24999</upper-bound>
+          <upper-bound>23999</upper-bound>
         </srgb>
         <bindings>
           <advertise>true</advertise>

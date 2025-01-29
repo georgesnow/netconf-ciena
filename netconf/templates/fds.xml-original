@@ -3,17 +3,10 @@
   ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
   xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <fds xmlns="urn:ciena:params:xml:ns:yang:ciena-pn:ciena-mef-fd">
-    {% if INT_DELETE %}
-    <fd xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
-      <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-ce-FD</name>     
-    </fd>
-    {%- else -%}
     <fd>
       <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-ce-FD</name>
       <mode>vpls</mode>
-      {% if LATERAL %}
       <vlan-id>{{ FD_VLAN }}</vlan-id>
-      {% endif %}
       <initiate-l2-transform>
         <vlan-stack>
           <tag>1</tag>
@@ -21,6 +14,5 @@
         </vlan-stack>
       </initiate-l2-transform>
     </fd>
-    {%- endif %}
   </fds>
   </config>

@@ -1,0 +1,13 @@
+<config>
+ <ldp xmlns="http://ciena.com/ns/yang/ciena/ciena-ldp">
+  <instance>
+   <tag>default</tag>
+   <interfaces>
+    <interface>
+       <name>Loopback</name>
+       <enable-ipv4>true</enable-ipv4>
+      </interface>
+   </interfaces>
+  </instance>
+ </ldp>
+</config>

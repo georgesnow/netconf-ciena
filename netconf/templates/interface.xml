@@ -3,11 +3,16 @@
   ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
   xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <interfaces xmlns="http://openconfig.net/yang/interfaces">
+    {% if INT_DELETE -%}
+    <interface xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+     <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
+    </interface>
+    {%- else %}
     <interface>
-      <name>12</name>
+      <name>{{ PORT }}</name>
       <config>
-        <name>12</name>
-        <description>12</description>
+        <name>{{ PORT }}</name>
+        <description>{{ PORT }}</description>
         <auto-negotiation xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">false</auto-negotiation>
         <duplex xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">full</duplex>
         <eoam-port-config xmlns="urn:ciena:params:xml:ns:yang:ciena-pn:ciena-ieee:ns:yang:ieee-port-eoam">
@@ -23,35 +28,16 @@
           <notify>true</notify>
         </lldp-port-config>
         <port-speed xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">10Gb</port-speed>
-        <ptp-id xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">12</ptp-id>
+        <ptp-id xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ethernet-port">{{ PORT }}</ptp-id>
         <type xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces">ettp</type>
       </config>
-    </interface>
-    <interface>
-      <name>Loopback</name>
-      <config>
-        <name>Loopback</name>
-        <role xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces" xmlns:cn-if="http://ciena.com/ns/yang/ciena-openconfig-interfaces">cn-if:management</role>
-        <type xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces">loopback</type>
-      </config>
-      <ipv4 xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ip">
-        <addresses>
-          <address>
-            <ip>{{ LOOPBACK_IP }}</ip>
-            <config>
-              <ip>{{ LOOPBACK_IP }}</ip>
-              <prefix-length>32</prefix-length>
-            </config>
-          </address>
-        </addresses>
-      </ipv4>
     </interface>
     <interface>
       <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
       <config>
         <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
         <mtu>9100</mtu>
-        <type xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces">ip</type>
+        <type xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces">point-to-point</type>
         <underlay-binding xmlns="http://ciena.com/ns/yang/ciena-underlay-binding">
           <config>
             <fd>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-ce-FD</fd>
@@ -70,5 +56,27 @@
         </addresses>
       </ipv4>
     </interface>
+    {%- endif %}
+    {%- if LATERAL -%}
+        <interface>
+      <name>Loopback</name>
+      <config>
+        <name>Loopback</name>
+        <role xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces" xmlns:cn-if="http://ciena.com/ns/yang/ciena-openconfig-interfaces">cn-if:management</role>
+        <type xmlns="http://ciena.com/ns/yang/ciena-openconfig-interfaces">loopback</type>
+      </config>
+      <ipv4 xmlns="http://ciena.com/ns/yang/ciena-openconfig-if-ip">
+        <addresses>
+          <address>
+            <ip>{{ LOOPBACK_IP }}</ip>
+            <config>
+              <ip>{{ LOOPBACK_IP }}</ip>
+              <prefix-length>32</prefix-length>
+            </config>
+          </address>
+        </addresses>
+      </ipv4>
+    </interface>
+    {%- endif -%}
   </interfaces>
   </config>

@@ -1,0 +1,42 @@
+<config
+  xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx"
+  ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
+  xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <isis xmlns="http://ciena.com/ns/yang/ciena-isis">
+    <instance>
+      <tag>UNH</tag>
+      <interfaces>
+        {% if INT_DELETE -%}
+          <interface xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+          <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
+          </interface>
+        {%- else %}
+        <interface>
+          <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
+          <interface-type>point-to-point</interface-type>
+          <level-type>level-2</level-type>
+          <address-families>
+            <address-family>
+              <afi>ipv4</afi>
+              <safi>unicast</safi>
+            </address-family>
+          </address-families>
+          <bfd>
+            <enable>true</enable>
+          </bfd>
+        </interface>
+        {%- endif %}
+        <interface>
+          <name>Loopback</name>
+          <level-type>level-2</level-type>
+          <address-families>
+            <address-family>
+              <afi>ipv4</afi>
+              <safi>unicast</safi>
+            </address-family>
+          </address-families>
+        </interface>
+      </interfaces>
+    </instance>
+  </isis>
+  </config>

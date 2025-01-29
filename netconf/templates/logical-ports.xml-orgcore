@@ -1,0 +1,17 @@
+<config
+  xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx"
+  ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
+  xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+   <logical-ports xmlns="urn:ciena:params:xml:ns:yang:ciena-pn::ciena-mef-logical-port">
+    <logical-port>
+      <name>{{ PORT }}</name>
+      <binding>{{ PORT }}</binding>
+      <mtu>9800</mtu>
+      {%- if LATERAL %}
+      <cos-to-frame-map>default-c2f</cos-to-frame-map>
+      {%- endif %}
+      <description>{{ PORT }} to { UPSTREAM_DEV }}</description>
+    </logical-port>
+  </logical-ports>
+
+  </config>

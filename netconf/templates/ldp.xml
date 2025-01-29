@@ -1,0 +1,8 @@
+<config>
+ <ldp xmlns="http://ciena.com/ns/yang/ciena/ciena-ldp">
+  <instance>
+	<tag>default</tag>
+	<lsr-id>{{ LOOPBACK_IP }}</lsr-id>
+  </instance>
+ </ldp>
+</config>

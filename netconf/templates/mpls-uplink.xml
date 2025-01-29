@@ -4,10 +4,16 @@
   xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
   <mpls xmlns="http://ciena.com/ns/yang/ciena-mpls">
     <interfaces>
+      {% if INT_DELETE -%}
+       <interface xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+       <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
+       </interface>
+      {%- else %}
       <interface>
-        <name>Loopback</name>
+        <name>{{ UPSTREAM_DEV }}-{{ DEV_TYPE }}-INT</name>
         <label-switching>true</label-switching>
       </interface>
+      {%- endif %}
     </interfaces>
   </mpls>
   </config>

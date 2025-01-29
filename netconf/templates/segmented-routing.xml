@@ -1,7 +1,4 @@
-<config
-  xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx"
-  ncx:last-modified="2023-01-11T02:08:00Z" ncx:etag="12"
-  xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+<config>
     <segment-routing xmlns="http://ciena.com/ns/yang/ciena-sr">
     <connected-prefix-sid-map>
       <prefix>{{ LOOPBACK_IP }}/32</prefix>
@@ -9,4 +6,4 @@
       <start-sid>{{ SID }}</start-sid>
     </connected-prefix-sid-map>
   </segment-routing>
-  </config>
+</config>
