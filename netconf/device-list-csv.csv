@@ -1,2 +1,3 @@
 device,serial,ip-device,upstream-dev,type,vlan,loopback,p2p,isis,sid,deploy-location,port,delete
-core-dev,xxxx,,lat-dev,1111,22,10.10.10.1,10.20.10.2,,,core,2,0
+core-dev,xxxx,,lat-dev,1111,22,,10.20.10.1,,,core,2,0
+lat-dev,aaaaa,,core-dev,9999,22,10.10.10.1,10.20.10.2,49.0001.1000.1001.0001,1,lateral,12,0
