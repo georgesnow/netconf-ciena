@@ -1,0 +1,17 @@
+<config>
+ <flood-containment-profiles
+  xmlns="urn:ciena:params:xml:ns:yang:ciena-pn:ciena-mef-flood-containment-profile">
+  <flood-containment-profile>
+   <name>flood_10Megabit</name>
+   <containment>
+    <frame-type>unknown-unicast</frame-type>
+    <rate>10000</rate>
+   </containment>
+   <containment>
+    <frame-type>broadcast</frame-type>
+    <rate>10000</rate>
+   </containment>
+   <description>10Mb/s Flood Containment</description>
+  </flood-containment-profile>
+ </flood-containment-profiles>
+ </config>

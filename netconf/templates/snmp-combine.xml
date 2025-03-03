@@ -1,0 +1,68 @@
+<config>
+  <snmp xmlns="urn:ietf:params:xml:ns:yang:ietf-snmp">
+    <usm>
+      <local>
+        <user>
+          <name>nms</name>
+          <auth>
+            <sha>
+              <key>{{ SNMP_KEY }}</key>
+            </sha>
+          </auth>
+          <priv>
+            <aes>
+              <key>{{ SNMP_KEY }}</key>
+            </aes>
+          </priv>
+        </user>
+      </local>
+    </usm>
+    <vacm>
+      <view>
+        <name>V3cView</name>
+        <include>internet</include>
+      </view>
+      <group>
+        <name>snmpv3</name>
+        <access>
+          <context/>
+          <security-model>usm</security-model>
+          <security-level>auth-priv</security-level>
+          <context-match>exact</context-match>
+          <read-view>V3cView</read-view>
+          <notify-view>V3cView</notify-view>
+        </access>
+        <member>
+          <security-name>nms</security-name>
+          <security-model>usm</security-model>
+        </member>
+      </group>
+    </vacm>
+    <target>
+      <name>Target1</name>
+      <udp>
+        <ip>{{ SNMP_SERVER_IP }}</ip>
+      </udp>
+      <target-params>cienaParams3</target-params>
+      <tag>cienaTag</tag>
+    </target>
+    <target-params>
+      <name>cienaParams3</name>
+      <usm>
+        <user-name>nms</user-name>
+        <security-level>auth-priv</security-level>
+      </usm>
+    </target-params>
+    <notify>
+      <name>Traps</name>
+      <tag>cienaTag</tag>
+      <type>trap</type>
+    </notify>
+    <notify>
+      <name>Inform</name>
+      <tag>cienaTag</tag>
+      <type>inform</type>
+    </notify>
+  </snmp>
+</config>
+

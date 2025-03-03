@@ -1,0 +1,53 @@
+<config>
+         <fps
+	  xmlns="urn:ciena:params:xml:ns:yang:ciena-pn:ciena-mef-fp">
+	  <fp
+	   xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+	   <name>remote-fp1</name>
+	  </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp2</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp3</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp4</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp5</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp6</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp7</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp8</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp9</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp10</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp11</name>
+          </fp>
+          <fp
+           xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="remove">
+           <name>remote-fp12</name>
+          </fp>
+	</fps>
+ </config>
