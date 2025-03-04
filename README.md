@@ -1,10 +1,14 @@
 # netconf-ciena
 netconf configuration for ciena devices via DHCP server matching on the serial numbers
 
+The requests are currently set to device defaults for username and password. Use proper security methods when deploying
+the gear and handling passwords.
+
 It is important to make sure the serial numbers match the devices you want to configure
 the serial numbers in CSV are the actual serial numbers
 DHCP server will have serial numbers with a prepend of \0000 which is accounted for 
 in the code. 
+
 
 The templates assume the naming you want to use conforms to
 
